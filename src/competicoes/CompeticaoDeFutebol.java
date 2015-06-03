@@ -1,15 +1,24 @@
 package competicoes;
 
-import equipes.Equipe;
+import equipes.*;
+import esportes.Esporte;
 import partidas.Partida;
 
+import java.util.ArrayList;
+
 public class CompeticaoDeFutebol extends Competicao{
+
+    public CompeticaoDeFutebol(String nome){
+        super(nome, Esporte.TipoDeEsporte.Futebol);
+    }
+
     protected void adicionaEquipe(){
 
     }
 
     protected Equipe removeEquipe(){
         // @TODO
+        return new EquipeDeFutebol("");
     }
 
     protected void arranjaEquipes(){
