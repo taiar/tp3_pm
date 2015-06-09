@@ -6,8 +6,6 @@ import java.util.ArrayList;
 
 public class main {
     public static void main(String args[]){
-        System.out.println("Vamos acompanhar o MiniCampeonato Brasileiro");
-
         CampeonatoBrasileiro MiniCampeonatoBrasileiro = new CampeonatoBrasileiro("MiniCampeonato Brasileiro");
 
         String[] nomesDeEquipes = {"Clube Atlético Mineiro", "Cruzeiro Esporte Clube",
@@ -21,7 +19,6 @@ public class main {
         }
 
         MiniCampeonatoBrasileiro.adicionaEquipesATabela(equipesDoCampeonato);
-        MiniCampeonatoBrasileiro.imprimeEquipesNaTela();
 
         // Após arranjar os jogos devemos exibi-los
         // MiniCampeonatoBrasileiro.exibeJogos();

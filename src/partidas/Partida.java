@@ -11,7 +11,7 @@ public abstract class Partida {
         this.equipe2 = equipe2;
     }
 
-    public static enum ResultadosPartida{
+    public enum ResultadosPartida{
         EQUIPE_1_VENCE,
         EMPATE,
         EQUIPE_2_VENCE
