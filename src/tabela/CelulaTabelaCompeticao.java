@@ -15,4 +15,9 @@ public abstract class CelulaTabelaCompeticao {
         return this.equipe;
     }
 
+    @Override
+    public String toString(){
+        return this.equipe.toString();
+    }
+
 }

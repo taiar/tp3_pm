@@ -33,10 +33,6 @@ public abstract class Competicao {
      * instanciar a competição e chamar este método */
     public abstract void processaCompeticao();
 
-    public void adicionaEquipesATabela(ArrayList<CelulaTabelaCompeticao> equipes){
-        this.tabela = equipes;
-    }
-
     public void imprimeEquipesNaTela(){
         System.out.println("Equipes do campeonato:");
         for(CelulaTabelaCompeticao equipe : this.tabela){

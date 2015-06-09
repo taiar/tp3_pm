@@ -40,4 +40,8 @@ public class JogoDeFutebol extends Partida {
 
         return ResultadosPartida.EMPATE;
     }
+
+    public String toString(){
+        return this.equipe1 + " X " + this.equipe2;
+    }
 }
