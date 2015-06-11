@@ -1,3 +1,4 @@
+import Gui.App;
 import competicoes.*;
 import equipes.*;
 import tabela.CelulaTabelaCompeticaoFutebol;
@@ -12,7 +13,7 @@ public class main {
                                    "Clube América Mineiro", "Clube de Regatas do Flamengo",
                                    "Sport Club Corinthians Paulista"};
 
-        ArrayList<CelulaTabelaCompeticaoFutebol> equipesDoCampeonato = new ArrayList<>();
+        ArrayList<CelulaTabelaCompeticaoFutebol> equipesDoCampeonato = new ArrayList<CelulaTabelaCompeticaoFutebol>();
 
         for(String nomeEquipe : nomesDeEquipes){
             equipesDoCampeonato.add(new CelulaTabelaCompeticaoFutebol(new EquipeDeFutebol(nomeEquipe)));
@@ -33,5 +34,7 @@ public class main {
         // Com a competição processada, podemos salvá-la para acesso futuro
         // Após realizada a competição é imutável!
         // MiniCampeonatoBrasileiro.salva();*/
+        App app = new App();
+        app.exec();
     }
 }
