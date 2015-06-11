@@ -1,7 +1,9 @@
 package competicoes;
 
+import equipes.Equipe;
 import equipes.EquipeDeFutebol;
 import partidas.JogoDeFutebol;
+import partidas.Partida;
 import pessoas.ComissaoTecnica;
 import tabela.CelulaTabelaCompeticao;
 import tabela.CelulaTabelaCompeticaoFutebol;
@@ -9,6 +11,7 @@ import tabela.CelulaTabelaCompeticaoFutebol;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class CampeonatoBrasileiro extends CompeticaoDeFutebol{
@@ -18,16 +21,23 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol{
 
     public CampeonatoBrasileiro(String nome){
         super(nome);
-        this.tabela = new ArrayList<CelulaTabelaCompeticaoFutebol>();
-        this.jogos1aFase = new ArrayList<JogoDeFutebol>();
-        this.jogos2aFase = new ArrayList<JogoDeFutebol>();
+        //this.tabela = new ArrayList<CelulaTabelaCompeticaoFutebol>();
+        this.tabela = new HashMap<>();
+        this.jogos1aFase = new ArrayList<>();
+        this.jogos2aFase = new ArrayList<>();
     }
 
     // TODO: transformar em private?
     protected void arranjaJogos(){
         CelulaTabelaCompeticaoFutebol equipe, adversario;
 
-        // Arranjo matricial permite dividir entre jogos de 1a e 2a fase
+        /* Arranjo matricial permite dividir entre jogos de 1a e 2a fase
+           O triangulo superior da matriz de adjacencia formada pelos times
+           forma os jogos da primeira fase, e o triangulo inferior forma
+           os da segunda fase
+        */
+
+        // TODO: arranjar pelo método do polígono, se der tempo
         int numeroDeEquipes = this.tabela.size();
         for(int i = 0; i < numeroDeEquipes; i++){
             for(int j = 0; j < numeroDeEquipes; j++){
@@ -35,7 +45,7 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol{
                 if(i == j){
                     continue;
                 }
-
+                // TODO: com o novo formato de tabela isto aqui DEVE ser corrigido
                 equipe = this.tabela.get(i);
                 adversario = this.tabela.get(j);
 
@@ -46,7 +56,7 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol{
                 }
             }
         }
-        
+
         Collections.shuffle(jogos1aFase);
         Collections.shuffle(jogos2aFase);
     }
@@ -55,21 +65,48 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol{
 
     }
 
+    /**
+     * @brief   Atualiza a tabela de acordo com os resultados de jogos
+     */
+    protected void atualizaTabela(JogoDeFutebol jogo){
+        switch(jogo.getResultado()){
+            case EQUIPE_1_VENCE:
+                this.tabela.get(jogo.getEquipe1()).obteveVitoria();
+                this.tabela.get(jogo.getEquipe2()).obteveDerrota();
+                break;
+            case EQUIPE_2_VENCE:
+                this.tabela.get(jogo.getEquipe2()).obteveVitoria();
+                this.tabela.get(jogo.getEquipe1()).obteveDerrota();
+                break;
+            default: // Apenas pode haver empate
+                this.tabela.get(jogo.getEquipe1()).obteveEmpate();
+                this.tabela.get(jogo.getEquipe2()).obteveEmpate();
+        }
+    }
+
     public void processaCompeticao(){
         this.arranjaJogos();
 
         Scanner sc = new Scanner(System.in);
 
+        // Processa jogos, gols
         System.out.println("1a fase:");
         for(JogoDeFutebol jogo : this.jogos1aFase){
             System.out.println(jogo);
-            //jogo.setGols();
+            jogo.setGols(sc.nextInt(), sc.nextInt());
+            this.atualizaTabela(jogo);
+            this.imprimeEstadoTabela();
+            sc.nextLine();
         }
 
         System.out.println("2a fase:");
         for(JogoDeFutebol jogo : this.jogos2aFase){
             System.out.println(jogo);
-            //jogo.setGols();
+            jogo.setGols(sc.nextInt(), sc.nextInt());
+            this.atualizaTabela(jogo);
+            this.imprimeEstadoTabela();
+            sc.nextLine();
         }
+
     }
 }

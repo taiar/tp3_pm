@@ -1,14 +1,34 @@
 package partidas;
 
+import equipes.Equipe;
 import tabela.CelulaTabelaCompeticao;
 
 public abstract class Partida {
     protected CelulaTabelaCompeticao equipe1;
     protected CelulaTabelaCompeticao equipe2;
+    protected boolean ocorreu;
 
     public Partida(CelulaTabelaCompeticao equipe1, CelulaTabelaCompeticao equipe2){
         this.equipe1 = equipe1;
         this.equipe2 = equipe2;
+        ocorreu = false;
+    }
+
+    // O nome está fora do padrão "is" para fazer mais sentido dentro do programa
+    public boolean jogoOcorreu(){
+        return this.ocorreu;
+    }
+
+    public void ocorreJogo(){
+        this.ocorreu = true;
+    }
+
+    public Equipe getEquipe1(){
+        return this.equipe1.getEquipe();
+    }
+
+    public Equipe getEquipe2(){
+        return this.equipe2.getEquipe();
     }
 
     public enum ResultadosPartida{
