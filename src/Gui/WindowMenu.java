@@ -13,8 +13,13 @@ public class WindowMenu extends JMenuBar {
     public WindowMenu() {
         JMenu menuArquivo = new JMenu("Arquivo");
         JMenuItem sair = new JMenuItem("Sair");
-        sair.addActionListener(new ExitListener());
-        menuArquivo.add(new JMenuItem("Sair"));
+        sair.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        menuArquivo.add(sair);
         this.menus.add(menuArquivo);
     }
 
@@ -23,19 +28,4 @@ public class WindowMenu extends JMenuBar {
             add(menu);
         }
     }
-
-    private class ExitListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-//            int confirm = JOptionPane.showOptionDialog(frame,
-//                    "Are You Sure to Close this Application?",
-//                    "Exit Confirmation", JOptionPane.YES_NO_OPTION,
-//                    JOptionPane.QUESTION_MESSAGE, null, null, null);
-//            if (confirm == JOptionPane.YES_OPTION) {
-                System.exit(0);
-//            }
-        }
-    }
 }
-
