@@ -12,7 +12,7 @@ public class main {
                                    "Clube América Mineiro", "Clube de Regatas do Flamengo",
                                    "Sport Club Corinthians Paulista"};
 
-        ArrayList<CelulaTabelaCompeticaoFutebol> equipesDoCampeonato = new ArrayList<>();
+        ArrayList<CelulaTabelaCompeticaoFutebol> equipesDoCampeonato = new ArrayList<CelulaTabelaCompeticaoFutebol>();
 
         for(String nomeEquipe : nomesDeEquipes){
             equipesDoCampeonato.add(new CelulaTabelaCompeticaoFutebol(new EquipeDeFutebol(nomeEquipe)));

@@ -22,9 +22,9 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol{
     public CampeonatoBrasileiro(String nome){
         super(nome);
         //this.tabela = new ArrayList<CelulaTabelaCompeticaoFutebol>();
-        this.tabela = new HashMap<>();
-        this.jogos1aFase = new ArrayList<>();
-        this.jogos2aFase = new ArrayList<>();
+        this.tabela = new HashMap<Equipe, CelulaTabelaCompeticaoFutebol>();
+        this.jogos1aFase = new ArrayList<JogoDeFutebol>();
+        this.jogos2aFase = new ArrayList<JogoDeFutebol>();
     }
 
     // TODO: transformar em private?
