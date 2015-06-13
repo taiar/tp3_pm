@@ -3,7 +3,7 @@ package Gui.Windows;
 
 import Gui.Screens.AbstractScreen;
 import Gui.Screens.Home;
-import Gui.WindowMenu;
+import Gui.MainWindowMenu;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class MainWindow extends JFrame {
 
     // Barra de menu da janela principal
-    private WindowMenu menu;
+    private MainWindowMenu menu;
 
     // Telas disponíveis para uso no sistema
     private ArrayList<AbstractScreen> telas = new ArrayList<AbstractScreen>();
@@ -57,7 +57,7 @@ public class MainWindow extends JFrame {
     }
 
     private void addMenu() {
-        this.menu = new WindowMenu();
+        this.menu = new MainWindowMenu();
         this.menu.showMenu();
     }
 

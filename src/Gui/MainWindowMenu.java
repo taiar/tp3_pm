@@ -13,7 +13,7 @@ import java.util.ArrayList;
 /**
  * Classe responsável por gerar o menu superior.
  */
-public class WindowMenu extends JMenuBar {
+public class MainWindowMenu extends JMenuBar {
 
     // Itens da barra de menu
     ArrayList<JMenu> menus = new ArrayList<JMenu>();
@@ -21,9 +21,12 @@ public class WindowMenu extends JMenuBar {
     /**
      * Faz a criação de todos os itens do menu e adiciona na lista de itens da barra de menu.
      */
-    public WindowMenu() {
-        // Aquivo
+    public MainWindowMenu() {
+        /**
+         * Aquivo
+         */
         JMenu menuArquivo = new JMenu("Arquivo");
+
         // Início
         JMenuItem inicio = new JMenuItem("Início");
         inicio.addActionListener(new ActionListener() {
@@ -34,6 +37,7 @@ public class WindowMenu extends JMenuBar {
         });
         menuArquivo.add(inicio);
         this.menus.add(menuArquivo);
+
         // Sair
         JMenuItem sair = new JMenuItem("Sair");
         sair.addActionListener(new ActionListener() {
@@ -45,8 +49,12 @@ public class WindowMenu extends JMenuBar {
         menuArquivo.add(sair);
         this.menus.add(menuArquivo);
 
-        // Cadastro
+
+        /**
+         * Cadastro
+         */
         JMenu menuCadastro = new JMenu("Cadastro");
+
         // Cadastro Time
         JMenuItem time = new JMenuItem("Cadastrar novo time");
         time.addActionListener(new ActionListener() {
@@ -67,7 +75,9 @@ public class WindowMenu extends JMenuBar {
         menuCadastro.add(campeonato);
         this.menus.add(menuCadastro);
 
-        // Ajuda
+        /**
+         * Ajuda
+         */
         JMenu menuAjuda = new JMenu("Ajuda");
         // Sobre
         JMenuItem sobre = new JMenuItem("Sobre");
