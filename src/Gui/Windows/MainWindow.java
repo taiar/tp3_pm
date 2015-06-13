@@ -1,7 +1,11 @@
-package Gui;
+package Gui.Windows;
 
+
+import Gui.Screens.AbstractScreen;
+import Gui.WindowMenu;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 /**
  * Classe responsável pela janela principal do programa.
@@ -10,6 +14,9 @@ public class MainWindow extends JFrame {
 
     // Barra de menu da janela principal
     private WindowMenu menu;
+
+    // Telas disponíveis para uso no sistema
+    private ArrayList<AbstractScreen> telas = new ArrayList<AbstractScreen>();
 
     public MainWindow(String titulo, int sizeX, int sizeY) {
         // Dimensões e título

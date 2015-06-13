@@ -1,5 +1,7 @@
 package Gui;
 
+import Gui.Windows.MainWindow;
+
 public class App {
 
     private MainWindow appWindow;

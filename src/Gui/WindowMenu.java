@@ -1,9 +1,10 @@
 package Gui;
 
+import Gui.Windows.AboutWindow;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 /**
@@ -19,6 +20,7 @@ public class WindowMenu extends JMenuBar {
      */
     public WindowMenu() {
         // Aquivo
+        // Sair
         JMenu menuArquivo = new JMenu("Arquivo");
         JMenuItem sair = new JMenuItem("Sair");
         sair.addActionListener(new ActionListener() {
@@ -30,7 +32,30 @@ public class WindowMenu extends JMenuBar {
         menuArquivo.add(sair);
         this.menus.add(menuArquivo);
 
+        // Cadastro
+        // Cadastro Time
+        JMenu menuCadastro = new JMenu("Cadastro");
+        JMenuItem time = new JMenuItem("Cadastrar novo time");
+        time.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        menuCadastro.add(time);
+        // Cadastro Campeonato
+        JMenuItem campeonato = new JMenuItem("Cadastrar novo campeonato");
+        campeonato.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        menuCadastro.add(campeonato);
+        this.menus.add(menuCadastro);
+
         // Ajuda
+        // Sobre
         JMenu menuAjuda = new JMenu("Ajuda");
         JMenuItem sobre = new JMenuItem("Sobre");
         sobre.addActionListener(new ActionListener() {

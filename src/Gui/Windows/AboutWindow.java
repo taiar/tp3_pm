@@ -1,4 +1,4 @@
-package Gui;
+package Gui.Windows;
 
 
 import javax.swing.*;
@@ -11,7 +11,7 @@ public class AboutWindow extends JFrame {
     public AboutWindow() {
         setTitle("Sobre o trabalho");
         setResizable(false);
-        setSize(680, 600);
+        setSize(680, 580);
         this.layout = new FlowLayout(FlowLayout.CENTER);
         this.setLayout(this.layout);
         this.add(new JLabel("Trabalho 3 de Programação Modular - Gerenciador de eventos esportivos"));
