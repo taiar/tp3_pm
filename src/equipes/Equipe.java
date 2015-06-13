@@ -1,7 +1,9 @@
 package equipes;
 import esportes.*;
 
-public abstract class Equipe {
+import java.io.Serializable;
+
+public class Equipe implements Serializable{
     protected String nome;
     protected Esporte.TipoDeEsporte esporte;
 
@@ -10,7 +12,13 @@ public abstract class Equipe {
         this.esporte = esporte;
     }
 
-    public String toString(){
-        return this.nome;
+    public Equipe() {}
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setEsporte(Esporte.TipoDeEsporte esporte) {
+        this.esporte = esporte;
     }
 }

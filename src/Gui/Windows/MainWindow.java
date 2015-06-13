@@ -56,6 +56,11 @@ public class MainWindow extends JFrame {
         this.repaint();
     }
 
+    public AbstractScreen getTela() {
+        return this.telaAtual;
+    }
+
+
     private void addMenu() {
         this.menu = new MainWindowMenu();
         this.menu.showMenu();

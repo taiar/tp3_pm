@@ -2,6 +2,7 @@ import Gui.App;
 import competicoes.*;
 import equipes.*;
 import tabela.CelulaTabelaCompeticaoFutebol;
+import Database.Database;
 
 import java.util.ArrayList;
 
@@ -34,6 +35,8 @@ public class main {
         // Com a competição processada, podemos salvá-la para acesso futuro
         // Após realizada a competição é imutável!
         // MiniCampeonatoBrasileiro.salva();*/
+
+        Database.get();
         App app = new App();
         app.exec();
     }
