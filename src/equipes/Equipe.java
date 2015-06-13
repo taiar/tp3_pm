@@ -21,4 +21,12 @@ public class Equipe implements Serializable{
     public void setEsporte(Esporte.TipoDeEsporte esporte) {
         this.esporte = esporte;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Esporte.TipoDeEsporte getEsporte() {
+        return esporte;
+    }
 }

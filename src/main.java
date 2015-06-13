@@ -37,6 +37,7 @@ public class main {
         // MiniCampeonatoBrasileiro.salva();*/
 
         Database.get();
+
         App app = new App();
         app.exec();
     }
