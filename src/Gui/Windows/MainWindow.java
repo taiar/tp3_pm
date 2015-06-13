@@ -18,7 +18,11 @@ public class MainWindow extends JFrame {
     // Telas disponíveis para uso no sistema
     private ArrayList<AbstractScreen> telas = new ArrayList<AbstractScreen>();
 
-    public MainWindow(String titulo, int sizeX, int sizeY) {
+    // Singleton
+    private static MainWindow instance;
+    private MainWindow() {}
+
+    private MainWindow(String titulo, int sizeX, int sizeY) {
         // Dimensões e título
         setTitle(titulo);
         setSize(sizeX, sizeY);
@@ -27,6 +31,14 @@ public class MainWindow extends JFrame {
         // Adiciona a barra de menu com seus itens
         this.addMenu();
         setJMenuBar(this.menu);
+    }
+
+    // Singleton get instance.
+    public static MainWindow get() {
+        if(MainWindow.instance == null) {
+            MainWindow.instance = new MainWindow("TP3 PM | Gerenciador de Campeonatos esportivos", 800, 600);
+        }
+        return MainWindow.instance;
     }
 
     private void addMenu() {
