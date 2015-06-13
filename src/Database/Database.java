@@ -19,7 +19,6 @@ public class Database {
 
     private void init() {
         this.Equipe = new Tabela<Equipe>("Equipe");
-        this.Equipe.carrega();
     }
 
 }

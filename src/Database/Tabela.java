@@ -13,6 +13,7 @@ public class Tabela<T> implements Serializable {
 
     public Tabela(String nome) {
         this.setNome(nome);
+        this.carrega();
     }
 
     public String getPath() {
@@ -73,9 +74,10 @@ public class Tabela<T> implements Serializable {
             this.registros = (ArrayList<T>) ois.readObject();
             ois.close();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Classe não encontrada.");
         } catch (IOException e) {
-            e.printStackTrace();
+            this.criaTabelaVazia();
+            this.persiste();
         }
     }
 
