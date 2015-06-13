@@ -2,6 +2,7 @@ package Gui.Windows;
 
 
 import Gui.Screens.AbstractScreen;
+import Gui.Screens.Home;
 import Gui.WindowMenu;
 
 import javax.swing.*;
@@ -18,19 +19,24 @@ public class MainWindow extends JFrame {
     // Telas disponíveis para uso no sistema
     private ArrayList<AbstractScreen> telas = new ArrayList<AbstractScreen>();
 
+    // Tela atual
+    private AbstractScreen telaAtual;
+
     // Singleton
     private static MainWindow instance;
-    private MainWindow() {}
 
     private MainWindow(String titulo, int sizeX, int sizeY) {
         // Dimensões e título
         setTitle(titulo);
         setSize(sizeX, sizeY);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         // Adiciona a barra de menu com seus itens
         this.addMenu();
         setJMenuBar(this.menu);
+
+        // Tela inicial do sistema
+        this.setTela(new Home());
     }
 
     // Singleton get instance.
@@ -41,9 +47,24 @@ public class MainWindow extends JFrame {
         return MainWindow.instance;
     }
 
+    public void setTela(AbstractScreen tela) {
+        if(this.telaAtual != null)
+            remove(this.telaAtual);
+        this.telaAtual = tela;
+        this.add(this.telaAtual);
+        this.revalidate();
+        this.repaint();
+    }
+
     private void addMenu() {
         this.menu = new WindowMenu();
         this.menu.showMenu();
+    }
+
+    public void limpaTela() {
+        remove(this.telaAtual);
+        this.revalidate();
+        this.repaint();
     }
 
     public void showApp() {

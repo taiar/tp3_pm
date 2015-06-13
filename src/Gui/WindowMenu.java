@@ -1,6 +1,9 @@
 package Gui;
 
+import Gui.Screens.CadastroJogador;
+import Gui.Screens.Home;
 import Gui.Windows.AboutWindow;
+import Gui.Windows.MainWindow;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -20,8 +23,18 @@ public class WindowMenu extends JMenuBar {
      */
     public WindowMenu() {
         // Aquivo
-        // Sair
         JMenu menuArquivo = new JMenu("Arquivo");
+        // Início
+        JMenuItem inicio = new JMenuItem("Início");
+        inicio.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MainWindow.get().setTela(new Home());
+            }
+        });
+        menuArquivo.add(inicio);
+        this.menus.add(menuArquivo);
+        // Sair
         JMenuItem sair = new JMenuItem("Sair");
         sair.addActionListener(new ActionListener() {
             @Override
@@ -33,13 +46,13 @@ public class WindowMenu extends JMenuBar {
         this.menus.add(menuArquivo);
 
         // Cadastro
-        // Cadastro Time
         JMenu menuCadastro = new JMenu("Cadastro");
+        // Cadastro Time
         JMenuItem time = new JMenuItem("Cadastrar novo time");
         time.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                MainWindow.get().setTela(new CadastroJogador());
             }
         });
         menuCadastro.add(time);
@@ -55,8 +68,8 @@ public class WindowMenu extends JMenuBar {
         this.menus.add(menuCadastro);
 
         // Ajuda
-        // Sobre
         JMenu menuAjuda = new JMenu("Ajuda");
+        // Sobre
         JMenuItem sobre = new JMenuItem("Sobre");
         sobre.addActionListener(new ActionListener() {
             @Override
