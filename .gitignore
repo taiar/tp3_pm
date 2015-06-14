@@ -9,3 +9,4 @@ tp3_pm.iml
 .idea/
 out/
 src/data/
+*.class
