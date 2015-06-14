@@ -7,6 +7,8 @@ import Gui.Screens.Home;
 import Gui.MainWindowMenu;
 
 import javax.swing.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 /**
@@ -62,6 +64,21 @@ public class MainWindow extends JFrame {
         return this.telaAtual;
     }
 
+    public void atualizarTela() {
+        try {
+            this.setTela((AbstractScreen) Class.forName(this.telaAtual.getClass().getName()).getConstructor().newInstance());
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
 
     private void addMenu() {
         this.menu = new MainWindowMenu();
