@@ -8,10 +8,11 @@ import pessoas.ComissaoTecnica;
 import tabela.CelulaTabelaCompeticao;
 import tabela.CelulaTabelaCompeticaoFutebol;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.*;
 
-public class CampeonatoBrasileiro extends CompeticaoDeFutebol{
+public class CampeonatoBrasileiro extends CompeticaoDeFutebol implements Serializable {
 
     private ArrayList<JogoDeFutebol> jogos1aFase;
     private ArrayList<JogoDeFutebol> jogos2aFase;
@@ -133,8 +134,8 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol{
             System.out.println(c);
             System.out.println("P V D E GF GC SG");
             System.out.println(c.getPontos() + " " + c.getVitorias() + " " + c.getDerrotas() + " " +
-                                c.getEmpates() + " " + c.getGolsAFavor() + " " + c.getGolsContra() +
-                                " " + c.getSaldoDeGols());
+                    c.getEmpates() + " " + c.getGolsAFavor() + " " + c.getGolsContra() +
+                    " " + c.getSaldoDeGols());
         }
 
     }
