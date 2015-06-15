@@ -26,7 +26,7 @@ public class main {
         // MiniCampeonatoBrasileiro.exibeJogos();
 
         // Sabendo quais jogos teremos podemos trabalhar com os resultados
-        MiniCampeonatoBrasileiro.processaCompeticao();
+//        MiniCampeonatoBrasileiro.processaCompeticao();
 
         // Para que se acesse jogo a jogo (especialmente na interface gráfica) deve-se
         // ter um método acessório para os jogos
@@ -36,8 +36,8 @@ public class main {
         // Após realizada a competição é imutável!
         // MiniCampeonatoBrasileiro.salva();*/
 
-        /*Database.get();
+        Database.get();
         App app = new App();
-        app.exec();*/
+        app.exec();
     }
 }

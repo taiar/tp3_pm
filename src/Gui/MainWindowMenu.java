@@ -1,6 +1,7 @@
 package Gui;
 
 import Gui.Screens.CadastroEquipe;
+import Gui.Screens.CadastroPessoas;
 import Gui.Screens.Home;
 import Gui.Windows.AboutWindow;
 import Gui.Windows.MainWindow;
@@ -55,6 +56,15 @@ public class MainWindowMenu extends JMenuBar {
          */
         JMenu menuCadastro = new JMenu("Cadastro");
 
+        // Cadastro Pessoa
+        JMenuItem pessoa = new JMenuItem("Criar nova pessoa");
+        pessoa.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MainWindow.get().setTela(new CadastroPessoas());
+            }
+        });
+        menuCadastro.add(pessoa);
         // Cadastro Time
         JMenuItem time = new JMenuItem("Criar nova equipe");
         time.addActionListener(new ActionListener() {

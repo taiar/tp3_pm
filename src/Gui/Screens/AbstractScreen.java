@@ -1,10 +1,13 @@
 package Gui.Screens;
 
 
+import Database.Database;
 import Gui.Windows.MainWindow;
+import equipes.Equipe;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public abstract class AbstractScreen extends JPanel {
 

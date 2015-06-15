@@ -39,8 +39,7 @@ public class MainWindow extends JFrame {
         setJMenuBar(this.menu);
 
         // Tela inicial do sistema
-//        this.setTela(new Home());
-        this.setTela(new CadastroEquipe());
+        this.setTela(new Home());
     }
 
     // Singleton get instance.
