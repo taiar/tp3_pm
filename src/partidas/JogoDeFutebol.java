@@ -30,6 +30,14 @@ public class JogoDeFutebol extends Partida {
         this.golsEquipe2 = golsEquipe2;
     }
 
+    public int getGolsEquipe1(){
+        return this.golsEquipe1;
+    }
+
+    public int getGolsEquipe2(){
+        return this.golsEquipe2;
+    }
+
     public ResultadosPartida getResultado(){
         if(golsEquipe1 > golsEquipe2){
             return ResultadosPartida.EQUIPE_1_VENCE;

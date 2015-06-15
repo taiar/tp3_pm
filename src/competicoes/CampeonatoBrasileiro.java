@@ -76,19 +76,28 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol{
      * @brief   Atualiza a tabela de acordo com os resultados de jogos
      */
     protected void atualizaTabela(JogoDeFutebol jogo){
+        CelulaTabelaCompeticaoFutebol equipe1, equipe2;
+        equipe1 = this.encontraEquipeEmTabela(jogo.getEquipe1());
+        equipe2 = this.encontraEquipeEmTabela(jogo.getEquipe2());
+        // Gols contra/a favor
+        equipe1.incrementaGolsAFavor(jogo.getGolsEquipe1());
+        equipe1.incrementaGolsContra(jogo.getGolsEquipe2());
 
+        equipe2.incrementaGolsAFavor(jogo.getGolsEquipe2());
+        equipe2.incrementaGolsContra(jogo.getGolsEquipe1());
+
+        // Resultado do jogo
         switch(jogo.getResultado()){
             case EQUIPE_1_VENCE:
-                this.encontraEquipeEmTabela(jogo.getEquipe1()).obteveVitoria();
-                this.encontraEquipeEmTabela(jogo.getEquipe2()).obteveDerrota();
+                equipe1.obteveVitoria();
+                equipe2.obteveDerrota();
                 break;
             case EQUIPE_2_VENCE:
-                this.encontraEquipeEmTabela(jogo.getEquipe2()).obteveVitoria();
-                this.encontraEquipeEmTabela(jogo.getEquipe1()).obteveDerrota();
-                break;
+                equipe1.obteveDerrota();
+                equipe2.obteveVitoria();
             default: // Apenas pode haver empate
-                this.encontraEquipeEmTabela(jogo.getEquipe1()).obteveEmpate();
-                this.encontraEquipeEmTabela(jogo.getEquipe2()).obteveEmpate();
+                equipe1.obteveEmpate();
+                equipe2.obteveEmpate();
         }
 
     }

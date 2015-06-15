@@ -13,6 +13,9 @@ public class CelulaTabelaCompeticaoFutebol extends CelulaTabelaCompeticao{
     protected int derrotas;
     protected int empates;
 
+    protected int golsAFavor;
+    protected int golsContra;
+
     public CelulaTabelaCompeticaoFutebol(EquipeDeFutebol equipe){
         super(equipe);
     }
@@ -65,9 +68,35 @@ public class CelulaTabelaCompeticaoFutebol extends CelulaTabelaCompeticao{
     public int compareTo(Object celula){
         CelulaTabelaCompeticaoFutebol c = (CelulaTabelaCompeticaoFutebol)celula;
         // 1a regra de desempate: pontos
-        return this.getPontos().compareTo(c.getPontos());
+        int pontos = this.getPontos().compareTo(c.getPontos());
+        if(pontos != 0){
+            return pontos;
+        }
 
         // 2a regra de desempate: saldo de gols
-        // Isso vai depender de uma integração com a lista de jogos
+        int sdg = this.getSaldoDeGols().compareTo(c.getSaldoDeGols());
+        return sdg;
+
+        //3a regra de desempate: cartões
+    }
+
+    public void incrementaGolsAFavor(int gols){
+        this.golsAFavor += gols;
+    }
+
+    public int getGolsAFavor(){
+        return this.golsAFavor;
+    }
+
+    public void incrementaGolsContra(int gols){
+        this.golsContra += gols;
+    }
+
+    public int getGolsContra(){
+        return this.golsContra;
+    }
+
+    public Integer getSaldoDeGols(){
+        return this.golsAFavor - this.golsContra;
     }
 }
