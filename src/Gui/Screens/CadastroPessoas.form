@@ -93,7 +93,12 @@
         <children>
           <component id="25a30" class="javax.swing.JTable" binding="listagemPessoas">
             <constraints/>
-            <properties/>
+            <properties>
+              <enabled value="false"/>
+            </properties>
+            <clientProperties>
+              <html.disable class="java.lang.Boolean" value="true"/>
+            </clientProperties>
           </component>
         </children>
       </scrollpane>

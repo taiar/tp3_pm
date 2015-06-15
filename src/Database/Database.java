@@ -1,12 +1,14 @@
 package Database;
 
 import equipes.Equipe;
+import equipes.EquipeDeFutebol;
 import pessoas.Pessoa;
 
 public class Database {
 
     public Tabela<Equipe> Equipe;
     public Tabela<pessoas.Pessoa> Pessoa;
+    public Tabela<EquipeDeFutebol> EquipeDeFutebol;
 
     // Singleton
     private static Database instance;
@@ -21,6 +23,7 @@ public class Database {
 
     private void init() {
         this.Equipe = new Tabela<Equipe>("Equipe");
+        this.EquipeDeFutebol = new Tabela<EquipeDeFutebol>("EquipeDeFutebol");
         this.Pessoa = new Tabela<Pessoa>("Pessoa");
     }
 

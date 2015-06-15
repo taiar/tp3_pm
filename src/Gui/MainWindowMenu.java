@@ -1,5 +1,6 @@
 package Gui;
 
+import Gui.Screens.CadastroCampeonatoBrasileiro;
 import Gui.Screens.CadastroEquipe;
 import Gui.Screens.CadastroPessoas;
 import Gui.Screens.Home;
@@ -79,7 +80,7 @@ public class MainWindowMenu extends JMenuBar {
         campeonato.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                MainWindow.get().setTela(new CadastroCampeonatoBrasileiro());
             }
         });
         menuCadastro.add(campeonato);

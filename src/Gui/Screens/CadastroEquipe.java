@@ -3,6 +3,7 @@ package Gui.Screens;
 import Database.Database;
 import Gui.Windows.MainWindow;
 import equipes.Equipe;
+import equipes.EquipeDeFutebol;
 import esportes.Esporte;
 
 import javax.swing.*;
@@ -25,11 +26,18 @@ public class CadastroEquipe extends AbstractScreen {
         cadastrarEquipeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Equipe novaEquipe = new Equipe();
-                novaEquipe.setEsporte(esporte.getItemAt(esporte.getSelectedIndex()));
-                novaEquipe.setNome(nomeEquipe.getText());
-                Database.get().Equipe.adicionaRegistro(novaEquipe);
-                Database.get().Equipe.persiste();
+                if(Esporte.TipoDeEsporte.values()[esporte.getSelectedIndex()] == Esporte.TipoDeEsporte.Futebol) {
+                    EquipeDeFutebol novaEquipe = new EquipeDeFutebol(nomeEquipe.getText());
+                    novaEquipe.setEsporte(Esporte.TipoDeEsporte.Futebol);
+                    Database.get().EquipeDeFutebol.adicionaRegistro(novaEquipe);
+                    Database.get().EquipeDeFutebol.persiste();
+                } else {
+                    Equipe novaEquipe = new Equipe();
+                    novaEquipe.setEsporte(esporte.getItemAt(esporte.getSelectedIndex()));
+                    novaEquipe.setNome(nomeEquipe.getText());
+                    Database.get().Equipe.adicionaRegistro(novaEquipe);
+                    Database.get().Equipe.persiste();
+                }
                 JOptionPane.showMessageDialog(null, "Equipe cadastrada com sucesso!");
                 MainWindow.get().getTela().limpaCampos();
                 MainWindow.get().getTela().atualizaModel();
