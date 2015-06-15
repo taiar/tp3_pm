@@ -24,6 +24,19 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol{
         this.jogos2aFase = new ArrayList<JogoDeFutebol>();
     }
 
+    protected CelulaTabelaCompeticaoFutebol encontraEquipeEmTabela(Equipe e){
+        for(CelulaTabelaCompeticaoFutebol c : this.tabela){
+            if(e.getNome().equals(c.getEquipe().getNome())){
+                return c;
+            }
+        }
+
+        // TODO: especificar excecao
+        // Deveria ter encontrado a equipe neste ponto
+        // throw new Exception("Equipe inexistente!");
+        return new CelulaTabelaCompeticaoFutebol(new EquipeDeFutebol("Inexistente"));
+    }
+
     // TODO: transformar em private?
     protected void arranjaJogos(){
         CelulaTabelaCompeticaoFutebol equipe, adversario;
@@ -59,29 +72,25 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol{
         Collections.shuffle(jogos2aFase);
     }
 
-    protected void processaJogo(int g){
-
-    }
-
     /**
      * @brief   Atualiza a tabela de acordo com os resultados de jogos
      */
     protected void atualizaTabela(JogoDeFutebol jogo){
+
         switch(jogo.getResultado()){
-            // TODO: AQUI é o lugar onde eu pego o ID da equipe
-            /*case EQUIPE_1_VENCE:
-                this.tabela.get(jogo.getEquipe1()).obteveVitoria();
-                this.tabela.get(jogo.getEquipe2()).obteveDerrota();
+            case EQUIPE_1_VENCE:
+                this.encontraEquipeEmTabela(jogo.getEquipe1()).obteveVitoria();
+                this.encontraEquipeEmTabela(jogo.getEquipe2()).obteveDerrota();
                 break;
             case EQUIPE_2_VENCE:
-                this.tabela.get(jogo.getEquipe2()).obteveVitoria();
-                this.tabela.get(jogo.getEquipe1()).obteveDerrota();
+                this.encontraEquipeEmTabela(jogo.getEquipe2()).obteveVitoria();
+                this.encontraEquipeEmTabela(jogo.getEquipe1()).obteveDerrota();
                 break;
             default: // Apenas pode haver empate
-                this.tabela.get(jogo.getEquipe1()).obteveEmpate();
-                this.tabela.get(jogo.getEquipe2()).obteveEmpate();
-                */
+                this.encontraEquipeEmTabela(jogo.getEquipe1()).obteveEmpate();
+                this.encontraEquipeEmTabela(jogo.getEquipe2()).obteveEmpate();
         }
+
     }
 
     public void processaCompeticao(){
@@ -95,7 +104,6 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol{
             System.out.println(jogo);
             jogo.setGols(sc.nextInt(), sc.nextInt());
             this.atualizaTabela(jogo);
-            this.imprimeEstadoTabela();
             sc.nextLine();
         }
 
@@ -104,7 +112,6 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol{
             System.out.println(jogo);
             jogo.setGols(sc.nextInt(), sc.nextInt());
             this.atualizaTabela(jogo);
-            this.imprimeEstadoTabela();
             sc.nextLine();
         }
 
