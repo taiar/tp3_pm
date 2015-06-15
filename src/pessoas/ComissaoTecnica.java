@@ -1,4 +1,4 @@
 package pessoas;
 
-public class ComissaoTecnica extends Pessoa{
+public class ComissaoTecnica extends Pessoa {
 }
