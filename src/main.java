@@ -20,21 +20,10 @@ public class main {
             equipesDoCampeonato.add(new CelulaTabelaCompeticaoFutebol(new EquipeDeFutebol(nomeEquipe)));
         }
 
-        //MiniCampeonatoBrasileiro.adicionaEquipesATabela(equipesDoCampeonato);
-
-        // Após arranjar os jogos devemos exibi-los
-        // MiniCampeonatoBrasileiro.exibeJogos();
+        MiniCampeonatoBrasileiro.adicionaEquipesATabela(equipesDoCampeonato);
 
         // Sabendo quais jogos teremos podemos trabalhar com os resultados
-//        MiniCampeonatoBrasileiro.processaCompeticao();
-
-        // Para que se acesse jogo a jogo (especialmente na interface gráfica) deve-se
-        // ter um método acessório para os jogos
-        // MiniCampeonatoBrasileiro.exibeJogoEspecifico();
-
-        // Com a competição processada, podemos salvá-la para acesso futuro
-        // Após realizada a competição é imutável!
-        // MiniCampeonatoBrasileiro.salva();*/
+        MiniCampeonatoBrasileiro.processaCompeticao();
 
         Database.get();
         App app = new App();

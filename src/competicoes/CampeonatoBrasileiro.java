@@ -113,6 +113,7 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol{
             System.out.println(jogo);
             jogo.setGols(sc.nextInt(), sc.nextInt());
             this.atualizaTabela(jogo);
+            sc.nextLine();
         }
 
         System.out.println("2a fase:");
@@ -120,14 +121,20 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol{
             System.out.println(jogo);
             jogo.setGols(sc.nextInt(), sc.nextInt());
             this.atualizaTabela(jogo);
+            sc.nextLine();
         }
 
         System.out.println("Imprimindo tabela ao final do campeonato");
+        // Ordena em ordem crescente. Como o oposto é desejado, inverter
+        Collections.sort(this.tabela);
+        Collections.reverse(this.tabela);
+
         for(CelulaTabelaCompeticaoFutebol c : this.tabela){
             System.out.println(c);
-            // TODO: ordenar por saldo de gols
-            System.out.println("V D N");
-            System.out.println(c.getVitorias() + " " + c.getDerrotas() + " " + c.getEmpates());
+            System.out.println("P V D E GF GC SG");
+            System.out.println(c.getPontos() + " " + c.getVitorias() + " " + c.getDerrotas() + " " +
+                                c.getEmpates() + " " + c.getGolsAFavor() + " " + c.getGolsContra() +
+                                " " + c.getSaldoDeGols());
         }
 
     }
