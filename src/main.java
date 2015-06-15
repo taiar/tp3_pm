@@ -36,9 +36,8 @@ public class main {
         // Após realizada a competição é imutável!
         // MiniCampeonatoBrasileiro.salva();*/
 
-        Database.get();
-
+        /*Database.get();
         App app = new App();
-        app.exec();
+        app.exec();*/
     }
 }

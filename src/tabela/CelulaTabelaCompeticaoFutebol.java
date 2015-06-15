@@ -46,4 +46,7 @@ public class CelulaTabelaCompeticaoFutebol extends CelulaTabelaCompeticao{
     /*public void setEmpates(int empates) {
         this.empates = empates;
     }*/
+    public String toString(){
+        return this.equipe.toString();
+    }
 }

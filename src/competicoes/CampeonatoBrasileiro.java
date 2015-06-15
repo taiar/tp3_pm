@@ -9,10 +9,7 @@ import tabela.CelulaTabelaCompeticao;
 import tabela.CelulaTabelaCompeticaoFutebol;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class CampeonatoBrasileiro extends CompeticaoDeFutebol{
 
@@ -21,8 +18,8 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol{
 
     public CampeonatoBrasileiro(String nome){
         super(nome);
-        //this.tabela = new ArrayList<CelulaTabelaCompeticaoFutebol>();
-        this.tabela = new HashMap<Equipe, CelulaTabelaCompeticaoFutebol>();
+        this.tabela = new ArrayList<CelulaTabelaCompeticaoFutebol>();
+        //this.tabela = new HashMap<Equipe, CelulaTabelaCompeticaoFutebol>();
         this.jogos1aFase = new ArrayList<JogoDeFutebol>();
         this.jogos2aFase = new ArrayList<JogoDeFutebol>();
     }
@@ -39,13 +36,14 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol{
 
         // TODO: arranjar pelo método do polígono, se der tempo
         int numeroDeEquipes = this.tabela.size();
+
         for(int i = 0; i < numeroDeEquipes; i++){
             for(int j = 0; j < numeroDeEquipes; j++){
                 // Não existe o caso "Equipe A X Equipe A"
                 if(i == j){
                     continue;
                 }
-                // TODO: com o novo formato de tabela isto aqui DEVE ser corrigido
+
                 equipe = this.tabela.get(i);
                 adversario = this.tabela.get(j);
 
@@ -70,7 +68,8 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol{
      */
     protected void atualizaTabela(JogoDeFutebol jogo){
         switch(jogo.getResultado()){
-            case EQUIPE_1_VENCE:
+            // TODO: AQUI é o lugar onde eu pego o ID da equipe
+            /*case EQUIPE_1_VENCE:
                 this.tabela.get(jogo.getEquipe1()).obteveVitoria();
                 this.tabela.get(jogo.getEquipe2()).obteveDerrota();
                 break;
@@ -81,6 +80,7 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol{
             default: // Apenas pode haver empate
                 this.tabela.get(jogo.getEquipe1()).obteveEmpate();
                 this.tabela.get(jogo.getEquipe2()).obteveEmpate();
+                */
         }
     }
 
