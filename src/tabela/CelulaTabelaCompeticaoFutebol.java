@@ -20,7 +20,7 @@ public class CelulaTabelaCompeticaoFutebol extends CelulaTabelaCompeticao{
         super(equipe);
     }
 
-    public int getVitorias() {
+    public Integer getVitorias() {
         return vitorias;
     }
 
@@ -73,7 +73,13 @@ public class CelulaTabelaCompeticaoFutebol extends CelulaTabelaCompeticao{
             return pontos;
         }
 
-        // 2a regra de desempate: saldo de gols
+        // 2a regra de desempate: número de vitórias
+        int vitorias = this.getVitorias().compareTo(c.getVitorias());
+        if(vitorias != 0){
+            return vitorias;
+        }
+
+        // 3a regra de desempate: saldo de gols
         int sdg = this.getSaldoDeGols().compareTo(c.getSaldoDeGols());
         return sdg;
 
