@@ -1,9 +1,12 @@
 package tabela;
 
-import equipes.Equipe;
 import equipes.EquipeDeFutebol;
 
 public class CelulaTabelaCompeticaoFutebol extends CelulaTabelaCompeticao{
+    protected static final Integer PONTOS_VITORIA = 3;
+    protected static final Integer PONTOS_EMPATE = 1;
+    protected static final Integer PONTOS_DERROTA = 0;
+
     // pontos será função de vitorias, derrotas e empates, menos penalidades
     // private int pontos;
     protected int vitorias;
@@ -48,5 +51,23 @@ public class CelulaTabelaCompeticaoFutebol extends CelulaTabelaCompeticao{
     }*/
     public String toString(){
         return this.equipe.toString();
+    }
+
+    public Integer getPontos(){
+        Integer pontos = this.vitorias * PONTOS_VITORIA +
+                     this.empates * PONTOS_EMPATE +
+                     this.empates * PONTOS_DERROTA;
+
+        return pontos;
+    }
+
+    // A.compareTo(B) = -1, A<B; 0, A==B; 1, A>B
+    public int compareTo(Object celula){
+        CelulaTabelaCompeticaoFutebol c = (CelulaTabelaCompeticaoFutebol)celula;
+        // 1a regra de desempate: pontos
+        return this.getPontos().compareTo(c.getPontos());
+
+        // 2a regra de desempate: saldo de gols
+        // Isso vai depender de uma integração com a lista de jogos
     }
 }

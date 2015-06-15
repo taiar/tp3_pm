@@ -20,7 +20,7 @@ public class main {
             equipesDoCampeonato.add(new CelulaTabelaCompeticaoFutebol(new EquipeDeFutebol(nomeEquipe)));
         }
 
-        MiniCampeonatoBrasileiro.adicionaEquipesATabela(equipesDoCampeonato);
+        //MiniCampeonatoBrasileiro.adicionaEquipesATabela(equipesDoCampeonato);
 
         // Após arranjar os jogos devemos exibi-los
         // MiniCampeonatoBrasileiro.exibeJogos();

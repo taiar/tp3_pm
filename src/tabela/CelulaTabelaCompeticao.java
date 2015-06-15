@@ -4,7 +4,9 @@ import equipes.Equipe;
 /**
  * @brief   Esta classe representa uma célula de tabela de competição
  */
-public abstract class CelulaTabelaCompeticao {
+public abstract class CelulaTabelaCompeticao implements Comparable{
+    // A célula é comparável para permitir ordenação da tabela. Quem
+    // vai implementar o método compareTo são as subclasses
     protected Equipe equipe;
 
     public CelulaTabelaCompeticao(Equipe equipe){
