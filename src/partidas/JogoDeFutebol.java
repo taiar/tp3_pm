@@ -34,7 +34,7 @@ public class JogoDeFutebol extends Partida {
         if(golsEquipe1 > golsEquipe2){
             return ResultadosPartida.EQUIPE_1_VENCE;
         }
-        if(golsEquipe2 < golsEquipe1){
+        if(golsEquipe1 < golsEquipe2){
             return ResultadosPartida.EQUIPE_2_VENCE;
         }
 
