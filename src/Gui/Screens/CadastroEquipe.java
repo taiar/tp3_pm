@@ -54,6 +54,9 @@ public class CadastroEquipe extends AbstractScreen {
         for (Equipe e : Database.get().Equipe.getRegistros()) {
             dados.add(new String[] { e.getNome(), e.getEsporte().toString() });
         }
+        for (Equipe e : Database.get().EquipeDeFutebol.getRegistros()) {
+            dados.add(new String[] { e.getNome(), e.getEsporte().toString() });
+        }
         String[][] dadosString = new String[dados.size()][2];
         dadosString = dados.toArray(dadosString);
         return dadosString;
