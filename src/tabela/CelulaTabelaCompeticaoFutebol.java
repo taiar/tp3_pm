@@ -2,13 +2,18 @@ package tabela;
 
 import equipes.EquipeDeFutebol;
 
+/**
+ * @brief   Esta classe representa uma célula de tabela de campeonato de futebol,
+ *          contendo constantes úteis para tais competições e os atributos
+ *          pertinentes. A associação destas células compõe a tabela, na
+ *          classe da competição.
+ */
 public class CelulaTabelaCompeticaoFutebol extends CelulaTabelaCompeticao{
     protected static final Integer PONTOS_VITORIA = 3;
     protected static final Integer PONTOS_EMPATE = 1;
     protected static final Integer PONTOS_DERROTA = 0;
 
     // pontos será função de vitorias, derrotas e empates, menos penalidades
-    // private int pontos;
     protected int vitorias;
     protected int derrotas;
     protected int empates;
@@ -24,9 +29,6 @@ public class CelulaTabelaCompeticaoFutebol extends CelulaTabelaCompeticao{
         return vitorias;
     }
 
-    /*public void setVitorias(int vitorias) {
-        this.vitorias = vitorias;
-    }*/
     public void obteveVitoria(){
         this.vitorias++;
     }
@@ -38,9 +40,6 @@ public class CelulaTabelaCompeticaoFutebol extends CelulaTabelaCompeticao{
     public void obteveDerrota(){
         this.derrotas++;
     }
-    /*public void setDerrotas(int derrotas) {
-        this.derrotas = derrotas;
-    }*/
 
     public int getEmpates() {
         return empates;
@@ -49,13 +48,12 @@ public class CelulaTabelaCompeticaoFutebol extends CelulaTabelaCompeticao{
     public void obteveEmpate(){
         this.empates++;
     }
-    /*public void setEmpates(int empates) {
-        this.empates = empates;
-    }*/
+
     public String toString(){
         return this.equipe.toString();
     }
 
+    // Integer: para permitir o uso do método compareTo de forma transparente
     public Integer getPontos(){
         Integer pontos = this.vitorias * PONTOS_VITORIA +
                      this.empates * PONTOS_EMPATE +
@@ -82,10 +80,8 @@ public class CelulaTabelaCompeticaoFutebol extends CelulaTabelaCompeticao{
         // 3a regra de desempate: saldo de gols
         int sdg = this.getSaldoDeGols().compareTo(c.getSaldoDeGols());
         return sdg;
-
-        //3a regra de desempate: cartões
     }
-
+    // Temos apenas métodos de incremento de gols para manter coesão histórica
     public void incrementaGolsAFavor(int gols){
         this.golsAFavor += gols;
     }

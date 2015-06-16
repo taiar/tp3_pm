@@ -7,9 +7,12 @@ import Gui.App;
         import java.util.ArrayList;
 
 public class main {
-    public static void main(String args[]){
+
+    private static void executaCampeonatoModoTerminal(){
         CampeonatoBrasileiro MiniCampeonatoBrasileiro = new CampeonatoBrasileiro("MiniCampeonato Brasileiro");
 
+        /* A abstração previa que esta fase fosse concretizada recebendo as equipes cadastradas na
+           interface gráfica */
         String[] nomesDeEquipes = {"Clube Atlético Mineiro", "Cruzeiro Esporte Clube",
                 "Clube América Mineiro", "Clube de Regatas do Flamengo",
                 "Sport Club Corinthians Paulista"};
@@ -24,6 +27,11 @@ public class main {
 
         // Sabendo quais jogos teremos podemos trabalhar com os resultados
         MiniCampeonatoBrasileiro.processaCompeticao();
+    }
+
+    public static void main(String args[]){
+        // Executa o campeonato em modo terminal. Comentar para ver apenas a GUI
+        executaCampeonatoModoTerminal();
 
         Database.get();
         App app = new App();

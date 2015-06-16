@@ -3,6 +3,7 @@ import equipes.Equipe;
 
 /**
  * @brief   Esta classe representa uma célula de tabela de competição
+ *          genérica. Subclasses implementam (Factory)
  */
 public abstract class CelulaTabelaCompeticao implements Comparable{
     // A célula é comparável para permitir ordenação da tabela. Quem
