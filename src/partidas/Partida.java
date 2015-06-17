@@ -14,15 +14,6 @@ public abstract class Partida {
         ocorreu = false;
     }
 
-    // O nome está fora do padrão "is" para fazer mais sentido dentro do programa
-    public boolean jogoOcorreu(){
-        return this.ocorreu;
-    }
-
-    public void ocorreJogo(){
-        this.ocorreu = true;
-    }
-
     public Equipe getEquipe1(){
         return this.equipe1.getEquipe();
     }

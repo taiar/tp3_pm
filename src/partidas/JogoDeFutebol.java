@@ -1,7 +1,6 @@
 package partidas;
 
 import pessoas.Pessoa;
-import tabela.CelulaTabelaCompeticao;
 import tabela.CelulaTabelaCompeticaoFutebol;
 
 public class JogoDeFutebol extends Partida {

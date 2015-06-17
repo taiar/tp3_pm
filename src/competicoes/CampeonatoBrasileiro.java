@@ -3,13 +3,10 @@ package competicoes;
 import equipes.Equipe;
 import equipes.EquipeDeFutebol;
 import partidas.JogoDeFutebol;
-import partidas.Partida;
 import pessoas.ComissaoTecnica;
-import tabela.CelulaTabelaCompeticao;
 import tabela.CelulaTabelaCompeticaoFutebol;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class CampeonatoBrasileiro extends CompeticaoDeFutebol implements Serializable {
@@ -20,7 +17,6 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol implements Seriali
     public CampeonatoBrasileiro(String nome){
         super(nome);
         this.tabela = new ArrayList<CelulaTabelaCompeticaoFutebol>();
-        //this.tabela = new HashMap<Equipe, CelulaTabelaCompeticaoFutebol>();
         this.jogos1aFase = new ArrayList<JogoDeFutebol>();
         this.jogos2aFase = new ArrayList<JogoDeFutebol>();
     }
@@ -38,17 +34,18 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol implements Seriali
         return new CelulaTabelaCompeticaoFutebol(new EquipeDeFutebol("Inexistente"));
     }
 
-    // TODO: transformar em private?
+    /**
+     * @brief   Arranja a ordem dos jogos do campeonato
+     */
     protected void arranjaJogos(){
         CelulaTabelaCompeticaoFutebol equipe, adversario;
 
         /* Arranjo matricial permite dividir entre jogos de 1a e 2a fase
-           O triangulo superior da matriz de adjacencia formada pelos times
+           O triangulo superior da matriz de adjacência formada pelos times
            forma os jogos da primeira fase, e o triangulo inferior forma
            os da segunda fase
         */
 
-        // TODO: arranjar pelo método do polígono, se der tempo
         int numeroDeEquipes = this.tabela.size();
 
         for(int i = 0; i < numeroDeEquipes; i++){
@@ -80,10 +77,10 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol implements Seriali
         CelulaTabelaCompeticaoFutebol equipe1, equipe2;
         equipe1 = this.encontraEquipeEmTabela(jogo.getEquipe1());
         equipe2 = this.encontraEquipeEmTabela(jogo.getEquipe2());
+
         // Gols contra/a favor
         equipe1.incrementaGolsAFavor(jogo.getGolsEquipe1());
         equipe1.incrementaGolsContra(jogo.getGolsEquipe2());
-
         equipe2.incrementaGolsAFavor(jogo.getGolsEquipe2());
         equipe2.incrementaGolsContra(jogo.getGolsEquipe1());
 
@@ -96,6 +93,7 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol implements Seriali
             case EQUIPE_2_VENCE:
                 equipe1.obteveDerrota();
                 equipe2.obteveVitoria();
+                break;
             default: // Apenas pode haver empate
                 equipe1.obteveEmpate();
                 equipe2.obteveEmpate();
@@ -103,6 +101,12 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol implements Seriali
 
     }
 
+    /**
+     * @brief   Lógica da competição. Os jogos acontecem na ordem sorteada
+     *          e vão sendo incluídos conforme processados.
+     * @remark  A intenção era que esta lógica fosse combinada com a GUI,
+     *          mas o acoplamento não foi possível a tempo.
+     */
     public void processaCompeticao(){
         this.arranjaJogos();
 
@@ -130,12 +134,13 @@ public class CampeonatoBrasileiro extends CompeticaoDeFutebol implements Seriali
         Collections.sort(this.tabela);
         Collections.reverse(this.tabela);
 
+        // Impressão da tabela calculada
         for(CelulaTabelaCompeticaoFutebol c : this.tabela){
             System.out.println(c);
-            System.out.println("P V D E GF GC SG");
-            System.out.println(c.getPontos() + " " + c.getVitorias() + " " + c.getDerrotas() + " " +
-                    c.getEmpates() + " " + c.getGolsAFavor() + " " + c.getGolsContra() +
-                    " " + c.getSaldoDeGols());
+            System.out.println("P | V | D | E | GF | GC | SG");
+            System.out.println(c.getPontos() + " | " + c.getVitorias() + " | " + c.getDerrotas() + " | " +
+                    c.getEmpates() + " | " + c.getGolsAFavor() + " | " + c.getGolsContra() +
+                    " | " + c.getSaldoDeGols());
         }
 
     }
