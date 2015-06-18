@@ -13,6 +13,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ * Tela de formulário de cadastro de uma equipe.
+ */
 public class CadastroEquipe extends AbstractScreen {
 
     private JPanel cadastroEquipe;

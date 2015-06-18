@@ -4,6 +4,9 @@ package Gui.Windows;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Tela com dados sobre os desenvolvedores do sistema. Contém uma foto.
+ */
 public class AboutWindow extends JFrame {
 
     private FlowLayout layout;

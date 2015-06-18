@@ -13,6 +13,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ * Tela de formulário do cadastro de uma pessoa.
+ */
 public class CadastroPessoas extends AbstractScreen {
 
     private JPanel cadastroPessoas;

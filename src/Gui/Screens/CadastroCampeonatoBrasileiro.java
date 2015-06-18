@@ -16,6 +16,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Vector;
 
+/**
+ * Tela de formulário de cadastro do Campeonato Brasileiro.
+ */
 public class CadastroCampeonatoBrasileiro extends AbstractScreen {
     private JTextField nomeCampeonato;
     private JPanel cadastroCampeonato;

@@ -12,7 +12,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 /**
- * Classe responsável pela janela principal do programa.
+ * Classe responsável pela janela principal do sistema.
  */
 public class MainWindow extends JFrame {
 
@@ -50,6 +50,11 @@ public class MainWindow extends JFrame {
         return MainWindow.instance;
     }
 
+    /**
+     * Muda a tela que está sendo exibida atualmente dentro da janela principal. 
+     * Utilizado para navegação no sistema.
+     * @param tela Tela que deve aparecer.
+     */
     public void setTela(AbstractScreen tela) {
         if(this.telaAtual != null)
             remove(this.telaAtual);
@@ -63,6 +68,11 @@ public class MainWindow extends JFrame {
         return this.telaAtual;
     }
 
+    /**
+     * Utilizando reflexão, identifica qual é a tela que está sendo exibida e 
+     * seta uma nova instância dela, fazendo com que tenha o efeito de atualizar
+     * a tela.
+     */
     public void atualizarTela() {
         try {
             this.setTela((AbstractScreen) Class.forName(this.telaAtual.getClass().getName()).getConstructor().newInstance());
@@ -79,6 +89,9 @@ public class MainWindow extends JFrame {
         }
     }
 
+    /**
+     * Adiciona o menu do sistema na tela principal.
+     */
     private void addMenu() {
         this.menu = new MainWindowMenu();
         this.menu.showMenu();
