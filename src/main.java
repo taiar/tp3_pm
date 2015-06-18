@@ -1,10 +1,9 @@
 import Gui.App;
-        import competicoes.*;
-        import equipes.*;
-        import tabela.CelulaTabelaCompeticaoFutebol;
-        import Database.Database;
-
-        import java.util.ArrayList;
+import competicoes.*;
+import equipes.*;
+import tabela.CelulaTabelaCompeticaoFutebol;
+import Database.Database;
+import java.util.ArrayList;
 
 public class main {
 
@@ -33,7 +32,10 @@ public class main {
         // Executa o campeonato em modo terminal. Comentar para ver apenas a GUI
         executaCampeonatoModoTerminal();
 
+        // Carrega instância única do banco de dados.
         Database.get();
+
+        // Instância da aplicação visual
         App app = new App();
         app.exec();
     }
