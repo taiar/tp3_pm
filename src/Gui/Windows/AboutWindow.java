@@ -18,7 +18,7 @@ public class AboutWindow extends JFrame {
         this.layout = new FlowLayout(FlowLayout.CENTER);
         this.setLayout(this.layout);
         this.add(new JLabel("Trabalho 3 de Programação Modular - Gerenciador de eventos esportivos"));
-        ImageIcon imagem = new ImageIcon("./src/assets/feio.jpg");
+        ImageIcon imagem = new ImageIcon("./assets/feio.jpg");
         JLabel foto = new JLabel();
         foto.setIcon(imagem);
         this.add(foto);
