@@ -6,8 +6,13 @@ import equipes.EquipeDeFutebol;
 import pessoas.Pessoa;
 import tabela.CelulaTabelaCompeticaoFutebol;
 
+/**
+ * Esta classe simula um banco de dados dando acesso às tabelas persistidas no sistema.
+ * Funciona como um singleton e, em sua inicialização, já carrega os dados das tabelas em memória.
+ */
 public class Database {
 
+    // Tabelas do sistema
     public Tabela<Equipe> Equipe;
     public Tabela<pessoas.Pessoa> Pessoa;
     public Tabela<EquipeDeFutebol> EquipeDeFutebol;
@@ -26,11 +31,11 @@ public class Database {
     }
 
     private void init() {
-        this.Equipe = new Tabela<Equipe>("Equipe");
-        this.EquipeDeFutebol = new Tabela<EquipeDeFutebol>("EquipeDeFutebol");
-        this.Pessoa = new Tabela<Pessoa>("Pessoa");
-        this.CelulaTabelaCompeticaoFutebol = new Tabela<tabela.CelulaTabelaCompeticaoFutebol>("CelulaTabelaCompeticaoFutebol");
-        this.CampeonatoBrasileiro = new Tabela<competicoes.CampeonatoBrasileiro>("CampeonatoBrasileiro");
+        this.Equipe                         = new Tabela<Equipe>("Equipe");
+        this.EquipeDeFutebol                = new Tabela<EquipeDeFutebol>("EquipeDeFutebol");
+        this.Pessoa                         = new Tabela<Pessoa>("Pessoa");
+        this.CelulaTabelaCompeticaoFutebol  = new Tabela<tabela.CelulaTabelaCompeticaoFutebol>("CelulaTabelaCompeticaoFutebol");
+        this.CampeonatoBrasileiro           = new Tabela<competicoes.CampeonatoBrasileiro>("CampeonatoBrasileiro");
     }
 
 }
